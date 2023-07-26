@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     "net7.0": {
-      "System.Memory/4.5.4": {
+      "System.Memory/4.5.5": {
         "type": "package",
         "compile": {
           "ref/netcoreapp2.1/_._": {}
@@ -24,6 +24,19 @@
           }
         }
       },
+      "YamlDotNet/13.1.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/YamlDotNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/YamlDotNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "ProcessMemory/3.0.0.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
@@ -41,10 +54,10 @@
     }
   },
   "libraries": {
-    "System.Memory/4.5.4": {
-      "sha512": "1MbJTHS1lZ4bS4FmsJjnuGJOu88ZzTT2rLvrhW7Ygic+pC0NWA+3hgAen0HRdsocuQXCkUTdFn9yHJJhsijDXw==",
+    "System.Memory/4.5.5": {
+      "sha512": "XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "type": "package",
-      "path": "system.memory/4.5.4",
+      "path": "system.memory/4.5.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -58,7 +71,7 @@
         "lib/netstandard2.0/System.Memory.dll",
         "lib/netstandard2.0/System.Memory.xml",
         "ref/netcoreapp2.1/_._",
-        "system.memory.4.5.4.nupkg.sha512",
+        "system.memory.4.5.5.nupkg.sha512",
         "system.memory.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -86,6 +99,33 @@
         "version.txt"
       ]
     },
+    "YamlDotNet/13.1.1": {
+      "sha512": "3AS0fEwxOucP0h68JXMxfj3NyfgX9EOVE29NlKqKxWMHfKMAuZ7MWw5u362Bs6OALtnBTzi/JYIiMidQXoKVWw==",
+      "type": "package",
+      "path": "yamldotnet/13.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "images/yamldotnet.png",
+        "lib/net35/YamlDotNet.dll",
+        "lib/net35/YamlDotNet.xml",
+        "lib/net45/YamlDotNet.dll",
+        "lib/net45/YamlDotNet.xml",
+        "lib/net47/YamlDotNet.dll",
+        "lib/net47/YamlDotNet.xml",
+        "lib/net6.0/YamlDotNet.dll",
+        "lib/net6.0/YamlDotNet.xml",
+        "lib/net7.0/YamlDotNet.dll",
+        "lib/net7.0/YamlDotNet.xml",
+        "lib/netstandard2.0/YamlDotNet.dll",
+        "lib/netstandard2.0/YamlDotNet.xml",
+        "lib/netstandard2.1/YamlDotNet.dll",
+        "lib/netstandard2.1/YamlDotNet.xml",
+        "yamldotnet.13.1.1.nupkg.sha512",
+        "yamldotnet.nuspec"
+      ]
+    },
     "ProcessMemory/3.0.0.1": {
       "type": "project",
       "path": "../libs/ProcessMemory/ProcessMemory/ProcessMemory.csproj",
@@ -94,7 +134,9 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "ProcessMemory >= 3.0.0.1"
+      "ProcessMemory >= 3.0.0.1",
+      "System.Memory >= 4.5.5",
+      "YamlDotNet >= 13.1.1"
     ]
   },
   "packageFolders": {
@@ -144,6 +186,16 @@
     "frameworks": {
       "net7.0": {
         "targetAlias": "net7.0",
+        "dependencies": {
+          "System.Memory": {
+            "target": "Package",
+            "version": "[4.5.5, )"
+          },
+          "YamlDotNet": {
+            "target": "Package",
+            "version": "[13.1.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

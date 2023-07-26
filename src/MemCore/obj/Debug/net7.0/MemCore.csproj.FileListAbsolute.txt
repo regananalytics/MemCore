@@ -1,0 +1,14 @@
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\bin\Debug\net7.0\MemCore.deps.json
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\bin\Debug\net7.0\MemCore.dll
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\bin\Debug\net7.0\MemCore.pdb
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\bin\Debug\net7.0\ProcessMemory64.dll
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.csproj.AssemblyReference.cache
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.AssemblyInfoInputs.cache
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.AssemblyInfo.cs
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.csproj.CoreCompileInputs.cache
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.csproj.CopyComplete
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.dll
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\refint\MemCore.dll
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\MemCore.pdb
+C:\Users\verti\Documents\GitHub\ManaTracker\src\csharp\libs\MemCore\src\MemCore\obj\Debug\net7.0\ref\MemCore.dll
