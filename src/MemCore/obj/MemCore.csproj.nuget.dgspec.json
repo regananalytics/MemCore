@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj": {}
+    "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
+    "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
       "version": "3.0.0.1",
       "restore": {
-        "projectUniqueName": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj",
+        "projectUniqueName": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj",
         "projectName": "ProcessMemory",
-        "projectPath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj",
+        "projectPath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj",
         "packagesPath": "C:\\Users\\verti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\obj\\",
+        "outputPath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -74,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj": {
+    "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj",
+        "projectUniqueName": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj",
         "projectName": "MemCore",
-        "projectPath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj",
+        "projectPath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj",
         "packagesPath": "C:\\Users\\verti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\obj\\",
+        "outputPath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -102,8 +102,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
-                "projectPath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj"
+              "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
+                "projectPath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj"
               }
             }
           }
