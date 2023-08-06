@@ -171,8 +171,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
-              "projectPath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj"
+            "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj": {
+              "projectPath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\libs\\ProcessMemory\\ProcessMemory\\ProcessMemory.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lFnmXUJqvZ4En7zuSbrXAIL6JPpzEiXpiYmmPDDTeCpx+PJ85ejSdND9JCieKkPG6ogxxj4YdcvKhiRChAJIRg==",
+  "dgSpecHash": "5auLDvQhEDnOp5ocuzVDjadEosmRDWJI4CNKRijA1taZroOhL8Cvol2BMGv1PAhboDwKJzE5TzKd/ddqHHAR1w==",
   "success": true,
-  "projectFilePath": "c:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj",
+  "projectFilePath": "C:\\Users\\verti\\Documents\\GitHub\\ManaTracker\\src\\csharp\\libs\\MemCore\\src\\MemCore\\MemCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\verti\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\verti\\.nuget\\packages\\system.text.json\\5.0.2\\system.text.json.5.0.2.nupkg.sha512",
