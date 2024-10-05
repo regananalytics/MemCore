@@ -11,10 +11,58 @@ namespace MemCore
             var config = deserializer.Deserialize<Config>(new StringReader(configFile));
             return config;
         }
+    }
 
-        // public void Build(Config config) {
-        //     raise new NotImplementedException();
-        // }
+    public class Address
+    {
+        public string Name { get; set; }
+        public string? Description { get; set; }
+        public int Offset { get; set; } = 0x0;
+        public int Size { get; set; } = 0x3;
+
+        public Address(string name, string? description = null, int offset = 0x0, int size = 0x3)
+        {
+            Name = name;
+            Description = description;
+            Offset = offset;
+            Size = size;
+        }
+
+        public unsafe ProcessAddress AttachProcess(Process process)
+        {
+            return new ProcessAddress(this, process);
+        }
+    }
+
+    public class ProcessAddress: Address
+    {
+        public Process Process { get; set; }
+        public MemHandler MemHandler { get; set; }
+        public IntPtr Address {get => (IntPtr)_address;}
+
+        private int _address;
+
+        public ProcessAddress(Address address, Process process) : base(address.Name, address.Description, address.Offset, address.Size)
+        {
+            Process = process;
+            MemHandler = new MemHandler(Process.Id, false);
+
+            var baseAddress = NativeWrappers.GetProcessBaseAddress(Process.Id, PInvoke.ListModules.LIST_MODULES_64BIT);
+            if (baseAddress == 0)
+                baseAddress = Process.MainModule.BaseAddress;
+
+            _address = (int)IntPtr.Add(baseAddress, Offset);
+        }
+
+        public IDisposable MemoryProtection()
+        {
+            return new MemoryProtectionScope(MemHandler.ProcessHandle, Address, Size);
+        }
+
+        public IDisposable TemporaryNop()
+        {
+            return new TemporaryNopScope(MemHandler.ProcessHandle, Address, Size);
+        }
     }
 
     public class Pointer
@@ -64,15 +112,15 @@ namespace MemCore
         }
 
         public static Dictionary<string, string> TypeDictionary = new Dictionary<string, string>
-    {
-      { "byte", "System.Byte" },
-      { "short", "System.Int16" },
-      { "int", "System.Int32" },
-      { "long", "System.Int64" },
-      { "float", "System.Single" },
-      { "double", "System.Double" },
-      { "decimal", "System.Decimal" }
-    };
+        {
+            { "byte", "System.Byte" },
+            { "short", "System.Int16" },
+            { "int", "System.Int32" },
+            { "long", "System.Int64" },
+            { "float", "System.Single" },
+            { "double", "System.Double" },
+            { "decimal", "System.Decimal" }
+        };
     }
 
     public class ProcessPointer : Pointer
@@ -84,7 +132,7 @@ namespace MemCore
         public ProcessPointer(Pointer pointer, Process process) : base(pointer.Name, pointer.Description, pointer.BaseAddress, pointer.Levels, pointer.Offset, pointer.Type, pointer.Default)
         {
             Process = process;
-            MemHandler = new MemHandler(Process.Id);
+            MemHandler = new MemHandler(Process.Id, false);
 
             var baseAddress = NativeWrappers.GetProcessBaseAddress(Process.Id, PInvoke.ListModules.LIST_MODULES_64BIT);
             if (baseAddress == 0)
@@ -194,6 +242,19 @@ namespace MemCore
                 default:
                     throw new ArgumentException($"Invalid type '{Type.Name}'");
             }
+        }
+
+        public bool SetValue(float value)
+        {
+            // Return default if the pointer is null
+            if (MemPointer == null || MemPointer.IsNullPointer)
+                return false;
+
+            // Ensure Type is set, use Default's type if available
+            Type ??= Default?.GetType() ?? throw new ArgumentException($"Type is null and no default value is set for pointer '{Name}'");
+
+            // var _value = Convert.ChangeType(value, Type);
+            return MemPointer.TryWriteFloat(Offset, ref value);
         }
     }
 }

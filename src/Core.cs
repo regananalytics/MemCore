@@ -11,6 +11,7 @@ namespace MemCore
         public Dictionary<string, Pointer> BasePointers { get; set; } = new Dictionary<string, Pointer>();
         public Dictionary<string, Pointer> StatePointers { get; set; } = new Dictionary<string, Pointer>();
         public Dictionary<string, List<Pointer>> ReplicaPointers { get; set; } = new Dictionary<string, List<Pointer>>();
+        public Dictionary<string, ProcessAddress> ProcessAddresses { get; set; } = new Dictionary<string, ProcessAddress>();
         public Dictionary<string, ProcessPointer> ProcessPointers { get; set; } = new Dictionary<string, ProcessPointer>();
 
         public MemoryCore(string gameConfDir, bool dryRun = false)
@@ -43,6 +44,14 @@ namespace MemCore
             {
                 var sp = _sp.Value;
                 BasePointers.Add(sp.Name, BuildPointer(sp));
+            }
+
+            // Build Addresses
+            foreach (var _ad in Config.OpAddresses)
+            {
+                var ad = _ad.Value;
+                var address = new Address(ad.Name, ad.Description, ad.Offset, ad.Size);
+                ProcessAddresses.Add(ad.Name, address.AttachProcess(process));
             }
 
 
@@ -188,6 +197,13 @@ namespace MemCore
                 dict.Add(pp.Key, pp.Value.Deref());
             }
             return dict;
+        }
+
+        internal Address BuildAddress(OpAddress _a)
+        {
+            return new Address(
+                _a.Name, _a.Description, _a.Offset, _a.Size
+            );
         }
 
         internal Pointer BuildPointer(StatePointer _p)

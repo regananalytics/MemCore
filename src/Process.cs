@@ -17,7 +17,7 @@ namespace MemCore
         {
             var accessFlags = readOnly 
                 ? ProcessAccessFlags.QueryInformation | ProcessAccessFlags.VirtualMemoryRead 
-                : ProcessAccessFlags.QueryInformation | ProcessAccessFlags.VirtualMemoryRead | ProcessAccessFlags.VirtualMemoryWrite;
+                : ProcessAccessFlags.QueryInformation | ProcessAccessFlags.VirtualMemoryRead | ProcessAccessFlags.VirtualMemoryOperation | ProcessAccessFlags.VirtualMemoryWrite;
                 
             ProcessHandle = OpenProcess(accessFlags, false, pid);
         }
@@ -227,5 +227,73 @@ namespace MemCore
         protected virtual void Dispose(bool disposing) => CloseHandle(ProcessHandle);
         public void Dispose() => Dispose(true);
         #endregion
+    }
+
+    public class MemoryProtectionScope : IDisposable
+    {
+        private readonly IntPtr _address;
+        private readonly int _size;
+        private readonly IntPtr _processHandle;
+        private uint _oldProtect;
+
+        public MemoryProtectionScope(IntPtr processHandle, IntPtr address, int size)
+        {
+            _address = address;
+            _size = size;
+            _processHandle = processHandle;
+
+            // Change memory protection to PAGE_EXECUTE_READWRITE
+            if (!VirtualProtectEx(_processHandle, _address, _size, (uint)AllocationProtect.PAGE_EXECUTE_READWRITE, out _oldProtect))
+            {
+                int errorCode = Marshal.GetLastWin32Error();
+                throw new InvalidOperationException($"Failed to change memory protection at {_address}. Error code: {errorCode}");
+            }
+        }
+
+        public void Dispose()
+        {
+            // Replace original memory protection when disposed
+            VirtualProtectEx(_processHandle, _address, _size, _oldProtect, out _);
+        }
+    }
+
+    public class TemporaryNopScope: IDisposable
+    {
+        private readonly IntPtr _address;
+        private readonly int _size;
+        private readonly byte[] _originalOps;
+        private readonly IntPtr _processHandle;
+        
+        public TemporaryNopScope(IntPtr processHandle, IntPtr address, int size)
+        {
+            _address = address;
+            _size = size;
+            _processHandle = processHandle;
+
+            // Save original instructions
+            _originalOps = new byte[_size];
+            ReadProcessMemory(_processHandle, _address, _originalOps, _size, out _);
+
+            // Fill with NOPs
+            byte[] nopOps = new byte[_size];
+            for (int i = 0; i < _size; i++)
+            {
+                nopOps[i] = 0x90; // NOP instruction
+            }
+
+            // Use MemoryProtectionScope to temporarily allow writes
+            using (new MemoryProtectionScope(_processHandle, _address, _size))
+            {
+                WriteProcessMemory(_processHandle, _address, nopOps, _size, out _);
+            }
+        }
+
+        public void Dispose()
+        {
+            using (new MemoryProtectionScope(_processHandle, _address, _size))
+            {
+                WriteProcessMemory(_processHandle, _address, _originalOps, _size, out _);
+            }
+        }
     }
 }

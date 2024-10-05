@@ -20,7 +20,7 @@
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <NoWarn>$(NoWarn);CS8632</NoWarn>
-    <PlatformTarget>x86</PlatformTarget>
+    <!-- <PlatformTarget>x86</PlatformTarget> -->
   </PropertyGroup>
 
 </Project>
